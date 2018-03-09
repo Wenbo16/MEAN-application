@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">User Home Page</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+	            <a href="#" [routerLink]='["/home"]'>Home</a>
+	        </li>
+	        <li>
+	            <a href="#" [routerLink]='["/create"]'>Create Post</a>
+	        </li>
+	        <li>
+	            <a href="#" [routerLink]='["posts"]'>Posts list</a>
+	        </li>			       
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="pull-right" *ngIf="_authService.checkLogin()">
+	            <a  (click)='signout()'><span class="glyphicon glyphicon-log-out"></span>Sign out</a>
+	        </li>
+
+	        <li class="pull-right" *ngIf="!_authService.checkLogin()">
+	            <a href="#" [routerLink]='["/login"]'><span class="glyphicon glyphicon-log-in"></span> Login</a>
+	        </li>
+
+	        <li class="pull-right" *ngIf="!_authService.checkLogin()">
+	            <a href="#" [routerLink]='["/signup"]'><span class="glyphicon glyphicon-registration-mark"></span> Sign Up</a>
+	        </li>
+        </ul>
+    </div>
+</nav>

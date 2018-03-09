@@ -1,0 +1,65 @@
+<div class="container">
+	<div class="post-list-container">
+		<div class="row">
+			<h3>{{pageTitle}}</h3>
+			<div class="col-sm-12">
+				<div class="post-item-container" *ngFor="let post of posts">
+					<h4>
+						<a [routerLink]="['/posts', post.id, 'comment','detail']">{{post.title}}</a>
+					</h4>
+				
+					<ul class='options-bar pull-right'>
+						<li><a [routerLink]="[post.id,'edit']">Edit</a></li>
+						<li><a (click)="delete(post.id)">Delete</a></li>
+					</ul>
+					
+					<p>
+						<i class="fa fa-thumbs-up" aria-hidden="true" (click)="markFavorite(post)" *ngIf="!liked(post)"></i>
+
+						<i class="far fa-thumbs-up" aria-hidden="true" (click)="markFavorite(post)" *ngIf="liked(post)"></i>&nbsp;
+
+						<a data-toggle="modal" data-target="#myModal" (click)="getLikesUsers(post)">{{post.likedUsers.length}}
+						</a> &nbsp;&nbsp;&nbsp;&nbsp;
+						
+						<i class="fa fa-comment" aria-hidden="true" (click)="onSelect(post)"></i>&nbsp;{{post.comments.length}} &nbsp;&nbsp;&nbsp;&nbsp;
+						
+						<span>By</span>&nbsp;{{post.author}} &nbsp;&nbsp;&nbsp;&nbsp;
+						{{post.postTime}}
+					</p>
+					
+					<div>
+						<app-comment-content [post]="post" *ngIf="checkSelected(post)"></app-comment-content>
+					</div>
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+									</button>
+									<h4 class="modal-title" id="myModalLabel">
+										Who like this post?
+									</h4>
+								</div>
+								<div class="modal-body">
+									<p *ngFor="let user of likesUsers">{{user}} </p><br />
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close
+									</button>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal -->
+					</div>
+				</div>
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

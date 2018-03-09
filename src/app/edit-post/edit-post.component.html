@@ -1,0 +1,22 @@
+<br />
+<br />
+<div class="panel panel-default ">
+    <div class="panel-body">
+			<div class="editPost">
+			    <form class="edit-post">
+			      	<h4 class="fieldset-title">Edit Post</h4>
+					<div class='form-group'>
+						<label for="title">Title</label>
+						<input type="text" class="form-control" name="title" [(ngModel)]='post.title' value="post.title">
+					</div>		
+					<div class='form-group'>
+						<label for="description">Description</label>
+						<textarea class="form-control z-depth-1" rows="5" value="post.description" name="description" [(ngModel)]='post.description'></textarea>
+					</div>
+			      	<button class="btn btn-primary" type="submit" (click)="updatePost()">Save</button>
+			      	<span> </span>
+			      	<button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+			    </form>
+			</div>
+	</div>
+</div>

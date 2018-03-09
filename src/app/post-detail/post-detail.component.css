@@ -1,0 +1,13 @@
+.options-bar{
+    list-style-type: none;
+}
+
+.options-bar li {
+    float: left;
+}
+
+.options-bar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}

@@ -1,0 +1,13 @@
+<p>show comments</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+		<div class="row">
+		    <div class="col-sm-12">
+		    	<div *ngFor="let comment of comments" class="comment-item-container">
+		            <h5>{{comment.content}} <span class="pull-right">{{comment.date}}</span></h5>
+		            <p>{{comment.username}} </p>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<div *ngIf="post">
+	<ul class="breadcrumb">
+		<li role="presentation"><a [routerLink]="['comment/detail']">Comments</a></li>
+		<li role="presentation"><a [routerLink] = "['create']">Add</a></li>
+	</ul>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			{{post.title}}
+		</div>
+		<div class="panel-body">
+			{{post.description}}
+		</div>
+	</div>
+	
+	<ul class='options-bar pull-right'>
+		<li><a (click)="goBack()">Back</a></li>
+	</ul>
+
+	<router-outlet></router-outlet>
+</div>
